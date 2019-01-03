@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\DataModel\bin\Debug\DataModel.dll.config
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\DataModel\bin\Debug\DataModel.dll
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\DataModel\bin\Debug\DataModel.pdb
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\DataModel\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\DataModel\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\DataModel\obj\Debug\DataModel.dll
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\DataModel\obj\Debug\DataModel.pdb

@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\.vs\ProjectManagerApi\4804\b\DataModel\bin\Debug\DataModel.dll.config
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\.vs\ProjectManagerApi\4804\b\DataModel\bin\Debug\DataModel.dll
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\.vs\ProjectManagerApi\4804\b\DataModel\bin\Debug\DataModel.pdb
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\.vs\ProjectManagerApi\4804\i\PMDAL\Debug\PMDAL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\.vs\ProjectManagerApi\4804\i\PMDAL\Debug\DataModel.dll
+C:\Users\Administrator\Desktop\Sumathi\ProjectManager\ProjectManagerApi\.vs\ProjectManagerApi\4804\i\PMDAL\Debug\DataModel.pdb
