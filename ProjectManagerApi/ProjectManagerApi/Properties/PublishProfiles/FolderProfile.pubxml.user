@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_NewBackgroundProfile>True</_NewBackgroundProfile>
+    <_NewBackgroundProfile>False</_NewBackgroundProfile>
     <_PublishTargetUrl>C:\Users\Administrator\Desktop\Sumathi\PublishedOutput</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
@@ -83,7 +83,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2018 10:35:26</publishTime>
     </File>
     <File Include="bin/DataModel.dll">
-      <publishTime>01/03/2019 18:12:12</publishTime>
+      <publishTime>01/03/2019 18:23:31</publishTime>
     </File>
     <File Include="bin/DataModel.dll.config">
       <publishTime>12/26/2018 16:21:43</publishTime>
@@ -125,7 +125,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/04/2014 09:03:56</publishTime>
     </File>
     <File Include="bin/ProjectManagerApi.dll">
-      <publishTime>01/03/2019 18:12:17</publishTime>
+      <publishTime>01/04/2019 16:09:46</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/28/2016 03:20:24</publishTime>
@@ -314,7 +314,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2018 10:35:04</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/03/2019 18:12:31</publishTime>
+      <publishTime>01/04/2019 16:09:48</publishTime>
     </File>
   </ItemGroup>
 </Project>
