@@ -1,0 +1,185 @@
+<h2>Update Task</h2>
+<form class="updatetask-form" #updatetaskForm="ngForm" (ngSubmit)="onSubmit(updatetaskForm)">    
+    <input type="hidden" name ="TaskId" #TaskId="ngModel" [(ngModel)]="taskService.task.TaskId">
+    <input type="hidden" name ="UserId" #UserId="ngModel" [(ngModel)]="taskService.task.UserId">
+    <input type="hidden" name ="Status" #Status="ngModel" [(ngModel)]="taskService.task.Status">
+    <div class="form-group row">
+      <label for="text" class="col-sm-2 col-form-label"> Project: </label>
+      <div class="col-sm-5">
+        <input type="text" readonly class="form-control" #ProjectName="ngModel" required [(ngModel)]="taskService.task.ProjectName"
+        name ="ProjectName" placeholder="ProjectName" /> 
+        <input type="hidden" name ="ProjectId" #ProjectId="ngModel" [(ngModel)]="taskService.task.ProjectId">
+        </div>       
+    </div>
+    <div class="form-group row">
+      <label for="text" class="col-sm-2 col-form-label"> Task: </label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" #TaskName="ngModel" required  [(ngModel)]="taskService.task.TaskName" 
+        name ="TaskName" placeholder="Task" autofocus/>        
+      </div>
+    </div>
+    <div class="form-group row">
+        <label><input type="checkbox" readonly style="margin-left:160px"
+             id="ParentTask" name="ParentTask"  [(ngModel)]="taskService.task.ParentTask" checked="taskService.task.ParentTask" > 
+          Parent Task </label>     
+    </div>                                          
+    <label for="text" style="margin-left:150px" > 0 <label for="text" style="margin-left:380px"> 30</label> </label>                 
+    <div class="form-group row">
+        <label for="text" class="col-sm-2 col-form-label"> Priority: </label>           
+        <div class="col-sm-6">                       
+          <input type="range" class="form-control" #Priority="ngModel" required [(ngModel)]="taskService.task.Priority" 
+          name ="Priority" placeholder="Priority" min="0" max="30" />        
+        </div>               
+      </div>
+      <div class="form-group row">
+        <label for="text" class="col-sm-2 col-form-label"> Parent Task: </label>
+        <div class="col-sm-5">
+          <input  readonly type="text" class="form-control" #ParentTaskName="ngModel" required [(ngModel)]="taskService.task.ParentTaskName" 
+          name ="ParentTaskName" placeholder="ParentTaskName" /> 
+          </div>
+          <div class="col-sm-2">
+          <a class="btn btn-default btn-secondary" style="margin-left:25px" data-toggle="modal" data-target="#myTaskModal">Search</a>&nbsp;               
+        </div>
+      </div>
+      <div class="form-group row">        
+          <div class="col-sm-offset-2">  
+              <div class="col-sm-4">   
+                  <label for="text"> Start Date:                                       
+            <input type="datetime-local" class="form-control form-control-rounded" #StartDate="ngModel" required  
+            [(ngModel)]="taskService.task.StartDate"  
+            name ="StartDate" placeholder="StartDate" /> </label>             
+            </div> 
+            <div class="col-sm-4">   
+                <label for="text"> End Date:                                     
+                    <input type="datetime-local"  class="form-control" #EndDate="ngModel" required  [(ngModel)]="taskService.task.EndDate" 
+                    name ="EndDate" placeholder="EndDate" /> </label>                
+          </div>            
+        </div>  
+      </div>                   
+      <div class="form-group row">
+          <label for="text" class="col-sm-2 col-form-label"> User: </label>
+          <div class="col-sm-5">
+            <input readonly type="text" class="form-control" #UserName="ngModel" required [(ngModel)]="taskService.task.UserName" 
+            name ="UserName" placeholder="UserName" /> 
+            </div>
+            <div class="col-sm-2">
+            <a class="btn btn-default btn-secondary" style="margin-left:25px" data-toggle="modal" data-target="#myModal">Search</a>&nbsp;               
+          </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-6">   
+                <div class="7">               
+               <button style="margin-left:15px" type="submit" class="btn btn-default btn-info" >Update Task</button>                       
+               &nbsp;<button  type="button" class="btn btn-default btn-info" (click)="router.navigate(['/view-task'])">Cancel</button>                                       
+               </div>               
+            </div>
+        </div>
+  </form>
+<br>
+<br>
+<hr>
+<div>      
+    <div class="container">     
+        <!-- Modal -->
+        <div class="modal fade" id="myTaskModal" role="dialog">
+          <div class="modal-dialog">        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Task List</h4>
+              </div>
+              <div class="modal-body">
+                  <table class="table table-sm table-hover table-striped">  
+                      <tr *ngFor="let task of taskList">
+                        <td>
+                          <label ng-readonly="all" >{{task.TaskName}}</label>
+                        </td>    
+                          <td>
+                          <label ng-readonly="all" >{{task.Status}}</label>
+                        </td>    
+                          <td>
+                           <label ng-readonly="all">{{task.TaskId}}</label>  &nbsp;&nbsp;  
+                           <input type="checkbox"  id="taskCheck" name="taskCheck" [checked]="checkbox" (change)="changedTask(task)">                            
+                        </td>     
+                      </tr>  
+                    </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Select</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>      
+      </div>
+<div>      
+    <div class="container">     
+        <!-- Modal -->
+        <div class="modal fade" id="myProjectModal" role="dialog">
+          <div class="modal-dialog">        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Project List</h4>
+              </div>
+              <div class="modal-body">
+                  <table class="table table-sm table-hover table-striped">  
+                      <tr *ngFor="let project of projectList">
+                        <td>
+                          <label ng-readonly="all" >{{project.ProjectName}}</label>
+                        </td>    
+                          <td>
+                          <label ng-readonly="all" >{{project.Status}}</label>
+                        </td>    
+                          <td>
+                           <label ng-readonly="all">{{project.ProjectId}}</label>  &nbsp;&nbsp;  
+                           <input type="checkbox"  id="projectCheck" name="projectCheck" [checked]="checkbox" (change)="changedProject(project)">                            
+                        </td>     
+                      </tr>  
+                    </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>      
+      </div>
+<div>      
+  <div class="container">     
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">User List</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-sm table-hover table-striped">  
+                    <tr *ngFor="let user of userList">
+                      <td>
+                        <label ng-readonly="all" >{{user.FirstName}}</label>
+                      </td>    
+                        <td>
+                        <label ng-readonly="all" >{{user.LastName}}</label>
+                      </td>    
+                        <td>
+                         <label ng-readonly="all">{{user.EmployeeId}}</label>  &nbsp;&nbsp;  
+                         <input type="checkbox"  id="userCheck" name="userCheck" [checked]="checkbox" (change)="changed(user)">                            
+                      </td>     
+                    </tr>  
+                  </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>      
+    </div>

@@ -1,0 +1,68 @@
+<h2>View Task</h2>
+<br>
+<div>    
+    <div class="form-group ">   
+        <label for="text" class="col-sm-1 col-form-label"> Project: </label>    
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="search.." >                           
+        </div>
+        <br>
+        <br>
+        </div>
+        <div class="form-group row ">
+        <div class="col-sm-8">            
+           <label for="text" class="col-sm-1 col-form-label" > Sort: </label>  
+           <a class="btn btn-default btnSort" style="margin-left:40px" (click)="sort('StartDate')">Start Date</a>&nbsp;
+           <a class="btn btn-default btnSort" style="margin-left:3px" (click)="sort('EndDate')">End Date</a>&nbsp;
+           <a class="btn btn-default btnSort" style="margin-left:3px" (click)="sort('Priority')">Priority</a>  &nbsp;        
+           <a class="btn btn-default btnSort" style="margin-left:4px" (click)="sort('Completed')">Completed</a>  &nbsp;        
+          </div>
+      </div>
+<hr>
+<table class="table table-sm table-hover table-striped">  
+  <tr>
+    <td>
+        <label  style="margin-left:5px">Task</label>
+    </td>
+    <td>
+        <label  style="margin-left:20px">Parent Task</label>
+    </td>
+    <td>
+        <label  style="margin-left:5px">Priority</label>
+    </td>
+    <td>
+        <label   style="margin-left:50px">Start Date</label>
+    </td>
+    <td>
+        <label   style="margin-left:50px">End Date</label>
+    </td>   
+    <td>
+        <label   style="margin-left:50px">Status</label>
+    </td> 
+  </tr>
+  <tr *ngFor="let task of taskList |search: 'ProjectName' : searchText ; let i= index">
+      <td>         
+            <label style="text-align: center">{{task.TaskName}}</label>  
+       </td>
+       <td>        
+           <label style="text-align: center">{{task.ParentTaskName}} </label>
+      </td> 
+      <td>        
+            <label style="text-align: center">{{task.Priority}}</label>  
+       </td>  
+      <td>         
+          <label style="text-align: center">{{task.StartDate}}</label>  
+      </td>              
+      <td>         
+          <label style="text-align: center">{{task.EndDate}}</label>  
+      </td> 
+      <td>         
+          <label style="text-align: center">{{task.Status}}</label>            
+      </td>          
+      <td>
+          <a class="btn btn-default btnColor" (click)="router.navigate(['/update-task',task])">Edit</a> &nbsp;                    
+        <a  *ngIf="task.Status == 'InProgress'" class="btn btn-default btnColor" (click)="endTask(task)">End Task</a>                
+      </td>   
+    </tr>  
+  </table>
+</div>

@@ -1,0 +1,59 @@
+<h2>Add User</h2>
+<form class="user-form" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <input type="hidden" name ="UserId" #UserId="ngModel" [(ngModel)]="userService.user.UserId"> 
+    <div class="form-group row">
+      <label for="text" class="col-sm-2 col-form-label"> First Name: </label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" #FirstName="ngModel" required  [(ngModel)]="userService.user.FirstName" 
+        name ="Firstname" placeholder="First Name" autofocus/>
+        
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="text" class="col-sm-2 col-form-label"> Last Name: </label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" #LastName="ngModel" required [(ngModel)]="userService.user.LastName" 
+          name ="Lastname" placeholder="Last Name"  />         
+        </div>
+      </div>
+      <div class="form-group row">
+          <label for="text" class="col-sm-2 col-form-label"> Employee ID: </label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" #EmployeeId="ngModel" required [(ngModel)]="userService.user.EmployeeId" 
+            name ="EmployeeId" placeholder="EmployeeId"  />                   
+          </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-4">     
+               <button [disabled]="!userForm.valid" type="submit" class="btn btn-default btn-info"  >Submit</button>                       
+               &nbsp;<button  type="button" class="btn btn-default btn-info" (click)="reset(userService.user)">Reset</button>                                       
+            </div>
+        </div>
+  </form>
+<hr>
+
+<div>
+    <div class="form-group row">       
+        <div class="col-sm-4">
+          <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="search.." >                           
+        </div>
+        <div class="col-sm-6">            
+           <label for="text" class="col-sm-2 col-form-label"> Sort: </label>  
+           <a class="btn btn-default btnSort" (click)="sort('FirstName')">First Name</a>&nbsp;
+           <a class="btn btn-default btnSort" (click)="sort('LastName')">Last Name</a>&nbsp;
+           <a class="btn btn-default btnSort" (click)="sort('EmployeeId')">Id</a>  &nbsp;        
+          </div>
+      </div>
+
+<table class="table table-sm table-hover table-striped">  
+    <tr *ngFor="let user of userList |search: 'FirstName' : searchText ; let i= index">
+      <td>
+       <label ng-readonly="all" class="disable">{{user.FirstName}}</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-default btnColor" (click)="edit(user)">Edit</a><br>
+        <label ng-readonly="all" class="disable">{{user.LastName}}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <a class="btn btn-default btnColor" (click)="delete(user.UserId)">Delete</a><br>
+         <label ng-readonly="all" class="disable">{{user.EmployeeId}}</label>        
+      </td>     
+    </tr>  
+  </table>
+</div>
